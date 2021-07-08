@@ -14,7 +14,6 @@ const ProductRow = ({data}) => {
     // Adding class name product to the article created
     article_item.classList.add('product')
 
-    console.log(article_item)
     article_item.innerHTML = `<p>Hello</p>`
 
     let the_r = []

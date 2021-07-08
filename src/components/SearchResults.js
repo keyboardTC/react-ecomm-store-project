@@ -7,15 +7,15 @@ import { Pagination } from 'antd';
 // Modify the new element, create the templete for all product.
 const SearchResults = ({result}) => {
 
-  function itemRender(current, type, originalElement) {
-    if (type === 'prev') {
-      return <a>Previous</a>;
-    }
-    if (type === 'next') {
-      return <a>Next</a>;
-    }
-    return originalElement;
-  }
+  // function itemRender(current, type, originalElement) {
+  //   if (type === 'prev') {
+  //     return <a>Previous</a>;
+  //   }
+  //   if (type === 'next') {
+  //     return <a>Next</a>;
+  //   }
+  //   return originalElement;
+  // }
 
   const [currPage, setCurrPage] = useState(1)
   const pageSize = 3
@@ -25,7 +25,7 @@ const SearchResults = ({result}) => {
 
 
     const theProducts = result.slice(startRow,endRow).map((product) => <ProductRow key={product.id} data={product} />)
-    console.log(theProducts)
+    // console.log(theProducts)
 
   return (
     <section className="results">

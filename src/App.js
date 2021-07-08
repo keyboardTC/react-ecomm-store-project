@@ -12,7 +12,7 @@ const App = () => {
       prod_name: 'Product1',
       prod_desc: 'Here is a shot of this product that might entice a user to click and add it to their cart.',
       prod_prices: [50.00, 79.00],
-      prod_rating: 4,
+      prod_rating: 2,
       prod_cat: ['red', 'dessert', 'white'],
       prod_weight: [500, 200],
     },
@@ -23,7 +23,7 @@ const App = () => {
       prod_name: 'Product2',
       prod_desc: 'Here is a shot of this product that might entice a user to click and add it to their cart.',
       prod_prices: [50.00, 39.00],
-      prod_rating: 5,
+      prod_rating: 1,
       prod_cat: ['red', 'rose','white'],
       prod_weight: [100, 800]
     },
@@ -34,7 +34,7 @@ const App = () => {
       prod_name: 'Product3',
       prod_desc: 'Here is a shot of this product that might entice a user to click and add it to their cart.',
       prod_prices: [50.00, 410.00],
-      prod_rating: 3,
+      prod_rating: 2,
       prod_cat: ['dessert', 'white'],
       prod_weight: [100, 200, 800]
     },

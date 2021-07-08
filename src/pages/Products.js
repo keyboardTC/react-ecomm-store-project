@@ -24,8 +24,8 @@ const Products = ({data}) => {
                                                         prod_weight.filter((wght) => weight.includes(wght)).length > 0) 
                                   .sort(sort)  
 
+// Product category filter
 const onCategoryChange = ({target}) => {
-
   if (target.checked) {
     setSearchState({
       ...searchState,
@@ -39,40 +39,39 @@ const onCategoryChange = ({target}) => {
   }
 }  
 
+// Product weight filter
 const onWeightChange = ({target}) => {
-
+    const wt = parseInt(target.value)
   if (target.checked) {
     setSearchState({
       ...searchState,
-      weight: [...searchState.courses, target.value]
+      weight: [...searchState.weight, wt]
     })
+    console.log(weight)
   } else {
+    console.log(`nothing`)
     setSearchState({
       ...searchState,
-      weight: searchState.weight.filter((wght) => wght !== target.value)
+      weight: searchState.weight.filter((wght) => wght !== wt)
     })
   }
 }  
 
+// Product filter for rating
 const onRatingChange = (event) => {
-
   setSearchState({
     ...searchState,
     rating: event.target.value
   })
 }
 
+// Filter for Sorting
 const handleSortChange = ({target}) => {
-
-  console.log(target.value)
-
   let sorting
   if (target.value === "0") {
     sorting = (a, b) => a.prod_prices[1] - b.prod_prices[1]
-    // console.log(b.prod_prices[1] )
   } else if (target.value === "1") {
     sorting = (a, b) => b.prod_prices[1] - a.prod_prices[1]
-    console.log(sorting)
   }
 
   setSearchState({
@@ -121,7 +120,7 @@ const handleSortChange = ({target}) => {
                 </li>
               </ul>
             </fieldset>
-            <fieldset id="filterWeight" onChange={onWeightChange } >
+            <fieldset id="filterWeight" onChange={onWeightChange} >
               <legend>Weight</legend>
               <ol className="filter-list">
                 <li>
