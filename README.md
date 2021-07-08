@@ -1,6 +1,6 @@
 # Quick React Demo
 
-Wine Shope Ecoomerce for my school project. To run from the command line (in this root folder):
+Wine Shop Ecoomerce for my school project. To run from the command line (in this root folder):
 
 ## 1. Install the Node Modules
 
