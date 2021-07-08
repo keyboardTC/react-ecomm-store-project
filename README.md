@@ -1,6 +1,6 @@
 # Quick React Demo
 
-A quick React demo and test. To run from the command line (in this root folder):
+Wine Shope Ecoomerce for my school project. To run from the command line (in this root folder):
 
 ## 1. Install the Node Modules
 
