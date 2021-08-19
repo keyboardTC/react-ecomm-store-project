@@ -51,9 +51,9 @@ const Header = ({page_title}) => {
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/">Shop</Link>
               <ul className="submenu">
-                <li><a href="#">Dessert Wine</a></li>
-                <li><a href="#">Red Wine</a></li>
-                <li><a href="#">Rose Wine</a></li>
+                <li><Link to="/">Dessert Wine</Link></li>
+                <li><Link to="/">Red Wine</Link></li>
+                <li><Link href="/">Rose Wine</Link></li>
               </ul>
             </li>
             <li><a href="#">About</a></li>
