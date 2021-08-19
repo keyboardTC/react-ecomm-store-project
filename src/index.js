@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
-import 'css/reset.css';
-import 'css/style.css';
+
 
 console.log("Welcome")
 ReactDOM.render(<App />, document.getElementById('root'))
@@ -10,6 +9,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 window.onscroll = function() {myFunction()};
 
 var navbar = document.querySelector('.menu');
+// var load = document.querySelector('loading')
 var sticky = navbar.offsetTop;
 
 function myFunction() {
@@ -49,3 +49,19 @@ nav_toggle.addEventListener('click',function () {
     navigation.classList.add('m-hide')
   }
 })
+
+// ========= Product images ==============
+// const the_thumbs = document.querySelectorAll(`.thumb`);
+// const main_image = document.querySelector(`#main_pic`);
+
+// const make_clickable = function (thumb){
+
+//     thumb.addEventListener(`click`, function(){
+//         console.log("Helloooo this guy")
+//         main_image.src = thumb.src;
+//         main_image.alt = thumb.alt;
+//     })
+// }
+
+// the_thumbs.forEach(make_clickable)
+

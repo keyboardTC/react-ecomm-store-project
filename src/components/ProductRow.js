@@ -1,5 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {Link} from 'react-router-dom'
 import Image from 'components/Image'
+import Item from 'components/Item'
+import FavItem from 'components/FavItem'
+import {CartContext, useMoney} from 'contexts/cart'
+
 
 const ProductRow = ({data}) => {
   const {id, prod_img, prod_link, prod_name, prod_desc, prod_prices, prod_rating, prod_cat, prod_weight} = data
@@ -33,11 +38,11 @@ const ProductRow = ({data}) => {
     
     return (
         <article className="product">
-            <Image src={prod_img} alt={prod_name} className="p_image"/>
+            <Image src={prod_img[0]} alt={prod_name} className="p_image"/>
             {/* <img src={p_Img} alt={prod_name} className="p_image" /> */}
             <div className="prod-details">
-                <h3><a href={prod_link}>{prod_name}</a></h3>
-                <p>${prod_desc} <a href={prod_link}>see more</a></p>
+                <h3><Link to={`/single_product/${data.id}`}> {prod_name} </Link></h3>
+                <p>{prod_desc} <Link to="/single_product">see more</Link></p>
                 <dl className="rating">
                     <data value={prod_prices[1]}><del>${prod_prices[0]}</del> <ins>${prod_prices[1]}</ins></data>
                     <dd><p>Rating : {prod_rating}</p>
@@ -59,12 +64,15 @@ const ProductRow = ({data}) => {
                     </fieldset>
                 </form>
                 <div className="prodcut-list-cart">
-                    <button type="button" className="add-to-cart-btn"><i className="fa fas fa-shopping-cart"></i> Add to Cart</button>
-                    <button type="button" className="add-to-fav"><i className="fa far fa-heart" name="Whist List"></i></button>
+                    {/* <button type="button" className="add-to-cart-btn"><i className="fa fas fa-shopping-cart"></i> Add to Cart</button> */}
+                    <Item key={id} data={data} />
+                    <FavItem key={id} data={data} />
+                    {/* <button type="button" className="add-to-fav"><i className="fa far fa-heart" name="Whist List"></i></button> */}
                 </div>
             </div>
         </article>
     )
 }
+
 
 export default ProductRow

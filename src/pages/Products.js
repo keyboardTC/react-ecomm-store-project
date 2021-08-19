@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import Layout from 'components/Layout'
 // import SearchFilter from 'components/SearchFilter'
 import SearchResults from 'components/SearchResults'
+import Title from 'antd/lib/skeleton/Title'
 
-const Products = ({data}) => {
+const Products = ({data,page_tit}) => {
+
 
   const [searchState, setSearchState] = useState({
     catergories: [],
@@ -81,7 +83,7 @@ const handleSortChange = ({target}) => {
 }
 
   return (
-    <Layout>
+    <Layout page_title = {page_tit}>
 
 {/* <!-- Side Bar--> */}
       <aside className="sidebar">

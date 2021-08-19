@@ -1,7 +1,13 @@
 import React from 'react'
 import logo from 'img/winHubLogo1.png';
+import {Link} from 'react-router-dom'
+import CartCount from 'components/CartCount'
+import FaviCount from 'components/FaviCount'
 
-const Header = () => {
+const Header = ({page_title}) => {
+
+  console.log(page_title+" yesss it works in header")
+  const pane = page_title ? page_title+" PAGE" : "PAGE TITLE"
 
   return (
     <header className="page-header">
@@ -24,23 +30,25 @@ const Header = () => {
           {/* <!-- Additional links --> */}
           <ul className="header-cart">
             <li><a href="#"><i className="fa fa-user-circle fa-2x"></i></a></li>
-            <li><a href="#"><i className="fa far fa-heart fa-2x"></i></a></li>
-            <li><a href="#"><i className="fa fas fa-shopping-cart fa-2x" aria-label="Items in your cart"></i></a></li>
+            {/* <li><a href="#"><i className="fa far fa-heart fa-2x"></i></a></li> */}
+            <Link to="/favorite"><FaviCount /></Link>
+            {/* <li><a href="#"><i className="fa fas fa-shopping-cart fa-2x" aria-label="Items in your cart"></i></a></li> */}
+            <Link to="/cart"><CartCount /></Link>
           </ul>
         </div>
 
         {/* <!-- LOGO --> */}
         <div className="logo">
-          <a href="./index.html" rel="home" className="site-logo">
+          <Link to="/" rel="home" className="site-logo">
             <img src={logo} alt="WINE HUB."/>
             {/* <!-- Site logo --> */}
-          </a>
+          </Link>
         </div>
 
         {/* <!-- Navigation menu -->       */}
         <nav aria-label="Primary" className="navigation  m-hide">
           <ul className="menu">
-            <li><a href="./index.html">HOME</a></li>
+            <li><Link to="/">HOME</Link></li>
             <li><a href="#">Shop</a>
               <ul className="submenu">
                 <li><a href="#">Dessert Wine</a></li>
@@ -55,7 +63,7 @@ const Header = () => {
 
       {/* <!-- Page Title --> */}
       <div className="page-title">
-        <h2>PAGE TITLE</h2>
+        <h2>{pane}</h2>
       </div>
     </header>
   )

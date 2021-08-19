@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import p_Img from 'img/1b.jpg'
 
+
 const Image = ({src, alt, ...attr}) => {
 
   // State will hold the image url
@@ -10,8 +11,10 @@ const Image = ({src, alt, ...attr}) => {
     import(`img/${src}`).then((image) => setImg(image.default))
   }
 
+  
+
   return (
-    <img src={(img) ? img : p_Img} alt={alt} {...attr} />
+    <img src={(img) ? img : p_Img} alt={alt} {...attr}  />
   )
 }
 
