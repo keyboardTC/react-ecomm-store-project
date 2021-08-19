@@ -49,7 +49,7 @@ const Header = ({page_title}) => {
         <nav aria-label="Primary" className="navigation  m-hide">
           <ul className="menu">
             <li><Link to="/">HOME</Link></li>
-            <li><a href="#">Shop</a>
+            <li><Link to="/">Shop</Link>
               <ul className="submenu">
                 <li><a href="#">Dessert Wine</a></li>
                 <li><a href="#">Red Wine</a></li>
