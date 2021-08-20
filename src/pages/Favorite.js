@@ -2,6 +2,9 @@ import React, {useContext} from 'react'
 import Layout from 'components/Layout'
 import {FaviContext, uMoney} from 'contexts/favi'
 import ProductsContext from 'contexts/products'
+import Removebtn from 'components/Removebtn'
+import Item from 'components/Item'
+import Image from 'components/Image'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
@@ -16,30 +19,30 @@ const Favorite = ({data,page_tit}) => {
 
 	return (
 		<Layout page_title = {page_tit}>
-			<div className="defualt_page">
 				<ul>
 					{ 
 						(favi.length)
 							? (favi.map(item => {
-	
-									let {prod_img, prod_name, prod_prices, cost} = products.find(prod => prod.id === item.id)
-									console.log(prod_prices[1]+" check out")
-									subtotal += cost * item.count
-									return <Model2><h2 className="cartProduct" key={item.id}>{prod_name} ({item.count} x {uMoney(prod_prices[1])}) = {uMoney(prod_prices[1] * item.count)}</h2></Model2> }))
-							: (<div className="empty_pages">No items in your Favorite, try going to the <Link to="/">shop</Link></div> )
+
+								let {prod_img, prod_name, prod_prices, cost} = products.find(prod => prod.id === item.id)
+                                console.log(prod_prices[1]+" check out")
+								subtotal += prod_prices[1] * item.count
+								return <Model2><Image src={prod_img[0]} alt={prod_name} className="thumbcart" ></Image> <h2 className="cartProduct" key={item.id}><b>{prod_name}</b> ({item.count} x {uMoney(prod_prices[1])}) <b>= {uMoney(prod_prices[1] * item.count)}</b></h2><Removebtn data={item}> </Removebtn>    <Item key={item.id} data={item} className="addfav"/></Model2> }))
+						: (<div>No items in your cart, try going to the <Link to="/">shop</Link></div> )
 					}
 				</ul>
 				<footer>
-					{Boolean(favi.length) && <div><em>(this does not do anything)</em> <button>Check out {uMoney(subtotal)}</button></div>}
+					{/* {Boolean(favi.length) && <div><button className="add-to-cart-btn">Check out {uMoney(subtotal)}</button></div>} */}
 				</footer>
-			</div>
 		</Layout>
 	)
 }
 
 const Model2 = styled.div`
-padding-top: 80px;
-padding-bottom: 80px;
+padding-top: 0px;
+display:flex;
+margin-bottom: 2em; 
+justify-content::space-between;
 `
 
 export default Favorite

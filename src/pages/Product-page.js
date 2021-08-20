@@ -7,6 +7,8 @@ import google_plus from 'img/google-plus.png'
 import instagram from 'img/instagram(2).png'
 import pinterest from 'img/pinterest.png'
 import twitter from 'img/twitter.png'
+import Item from 'components/Item'
+import FavItem from 'components/FavItem'
 import {useParams} from 'react-router-dom'
 import 'css/single-product.css'
 
@@ -15,8 +17,8 @@ const Single_product = ({data, page_tit}) => {
   const products = useContext(ProductsContext)
   const {slug} = useParams()
   const {id, prod_img, prod_link, prod_name, prod_desc, prod_prices, prod_rating, prod_cat, prod_weight} = products.find(product => product.id == slug)
-
-  console.log(prod_name+" From the single product page")
+  const [bigImage, setImage] = useState() 
+  const prd = products.find(product => product.id == slug)
 
   let the_r = []
   for (let x = 0; x < 5; x++) {
@@ -26,7 +28,6 @@ const Single_product = ({data, page_tit}) => {
           the_r.push(<span className="material-icons">star_border</span>)
       }
   }
-
 
   const the_w = prod_weight.map((wght) => <li><label><input type="radio" name="size" value="m" key={id}/>{wght}g</label></li>)
   const the_c = prod_cat.map((cat) => <li><label><input type="radio" name="category" value="r"/>{cat}</label></li>)
@@ -39,12 +40,12 @@ const Single_product = ({data, page_tit}) => {
             {/* <img src="img/5b.jpg" alt="Product Image1" className="thumb"/>
             <img src="img/5c.jpg" alt="Product Image2" className="thumb"/>
             <img src="img/3c.jpg" alt="Product Image3" className="thumb"/> */}
-            <Image src={prod_img[0]} alt={prod_name} className="thumb" />
-            <Image src={prod_img[1]} alt={prod_name} className="thumb" />
-            <Image src={prod_img[2]} alt={prod_name} className="thumb"/>
+            <Image onClick={() => {setImage(prod_img[0])}} src={prod_img[0]} alt={prod_name} className="thumb" />
+            <Image onClick={() => {setImage(prod_img[1])}} src={prod_img[1]} alt={prod_name} className="thumb" />
+            <Image onClick={() => {setImage(prod_img[2])}} src={prod_img[2]} alt={prod_name} className="thumb"/>
             <div className="prod-main-pic">
               {/* <img src="img/5b.jpg" alt="Product Image" id="main_pic"/> */}
-              <Image src={prod_img[0]} alt={prod_name} id="main_pic"/>
+              <Image src={bigImage} alt={prod_name} id="main_pic"/>
             </div>
           </section>
 
@@ -81,8 +82,10 @@ const Single_product = ({data, page_tit}) => {
                     </fieldset>
                   </form>
                   <div className="prodcut-list-cart">
-                    <button type="button" className="add-to-cart-btn"><i className="fa fas fa-shopping-cart"></i> Add to Cart</button>
-                    <button type="button" className="add-to-fav"><i className="fa far fa-heart "></i></button>
+                    {/* <button type="button" className="add-to-cart-btn"><i className="fa fas fa-shopping-cart"></i> Add to Cart</button>
+                    <button type="button" className="add-to-fav"><i className="fa far fa-heart "></i></button> */}
+                    <Item key={id} data={prd } />
+                    <FavItem  key={id} data={prd } />
                   </div>
                 </div>
                 <div className="share-icons">

@@ -56,8 +56,8 @@ const Header = ({page_title}) => {
                 <li><Link href="/">Rose Wine</Link></li>
               </ul>
             </li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><Link to="/">About</Link></li>
+            <li><Link to="/">Contact</Link></li>
           </ul>
         </nav>
 

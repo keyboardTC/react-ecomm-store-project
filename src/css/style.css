@@ -190,7 +190,11 @@ label.rating{
     padding: .3em;
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(img/background-wood.jpg);
 }
-
+.thumbcart{
+    height: 6em;
+    margin-right: 1em;
+    /* margin-bottom: ; */
+}
 
 /* <==================== footer styling ============> */
 .main-footer{

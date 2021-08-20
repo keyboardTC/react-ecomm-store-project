@@ -5,7 +5,7 @@ import Footer from 'components/Footer'
 
 const Layout = ({children, page_title}) => {
 
-  const page_class = page_title === "PRODUCT" ? "main-product" : "products"
+  const page_class = page_title === "SHOP" ? "products" : " main-product"
 
   console.log(page_class)
 
