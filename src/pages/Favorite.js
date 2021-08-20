@@ -24,10 +24,16 @@ const Favorite = ({data,page_tit}) => {
 						(favi.length)
 							? (favi.map(item => {
 
-								let {prod_img, prod_name, prod_prices, cost} = products.find(prod => prod.id === item.id)
-                                console.log(prod_prices[1]+" check out")
+								let {id, prod_img, prod_name, prod_prices, cost} = products.find(prod => prod.id === item.id)
 								subtotal += prod_prices[1] * item.count
-								return <Model2><Image src={prod_img[0]} alt={prod_name} className="thumbcart" ></Image> <h2 className="cartProduct" key={item.id}><b>{prod_name}</b> ({item.count} x {uMoney(prod_prices[1])}) <b>= {uMoney(prod_prices[1] * item.count)}</b></h2><Removebtn data={item}> </Removebtn>    <Item key={item.id} data={item} className="addfav"/></Model2> }))
+								return <Model2>
+											<Link to={`/single_product/${id}`}>
+												<Image src={prod_img[0]} alt={prod_name} className="thumbcart" ></Image> 
+												<h2 className="cartProduct" key={item.id}><b>{prod_name}</b> ({item.count} x {uMoney(prod_prices[1])}) <b>= {uMoney(prod_prices[1] * item.count)}</b></h2>
+											</Link>
+											<Removebtn data={item}> </Removebtn> 
+											<Item key={item.id} data={item} className="addfav"/>
+										</Model2> }))
 						: (<div>No items in your cart, try going to the <Link to="/">shop</Link></div> )
 					}
 				</ul>
@@ -40,9 +46,10 @@ const Favorite = ({data,page_tit}) => {
 
 const Model2 = styled.div`
 padding-top: 0px;
+border-bottom:1px solid white;
 display:flex;
 margin-bottom: 2em; 
-justify-content::space-between;
+justify-content:space-around;
 `
 
 export default Favorite

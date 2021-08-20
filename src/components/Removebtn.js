@@ -18,7 +18,7 @@ const Removebtn = ({data}) => {
 }
 
 const CancelBtn = styled.div`
-margin-right: 5em; 
+
 `
 
 

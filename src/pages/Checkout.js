@@ -23,10 +23,16 @@ const Checkout = ({data,page_tit}) => {
 					(cart.length)
 						? (cart.map(item => {
  
-								let {prod_img, prod_name, prod_prices, cost} = products.find(prod => prod.id === item.id)
+								let {id, prod_img, prod_name, prod_prices, cost} = products.find(prod => prod.id === item.id)
                                 console.log(prod_prices[1]+" check out")
 								subtotal += prod_prices[1] * item.count
-								return <Model2><Image src={prod_img[0]} alt={prod_name} className="thumbcart" ></Image> <h2 className="cartProduct" key={item.id}><b>{prod_name}</b> ({item.count} x {useMoney(prod_prices[1])}) <b>= {useMoney(prod_prices[1] * item.count)}</b></h2><Removebtn data={item}> </Removebtn></Model2> }))
+								return <Model2>
+											<Link to={`/single_product/${id}`}>
+												<Image src={prod_img[0]} alt={prod_name} className="thumbcart" ></Image> 
+												<h2 className="cartProduct" key={item.id}><b>{prod_name}</b> ({item.count} x {useMoney(prod_prices[1])}) <b>= {useMoney(prod_prices[1] * item.count)}</b></h2>
+											</Link>
+											<Removebtn data={item}> </Removebtn>
+										</Model2> }))
 						: (<div>No items in your cart, try going to the <Link to="/">shop</Link></div> )
 				}
 			</ul>
@@ -39,8 +45,10 @@ const Checkout = ({data,page_tit}) => {
 
 const Model2 = styled.div`
 padding-top: 0px;
+border-bottom:1px solid white;
 display:flex;
 margin-bottom: 2em; 
+justify-content:space-around;
 `
 
 export default Checkout
