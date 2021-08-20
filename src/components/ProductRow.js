@@ -42,7 +42,7 @@ const ProductRow = ({data}) => {
             {/* <img src={p_Img} alt={prod_name} className="p_image" /> */}
             <div className="prod-details">
                 <h3><Link to={`/single_product/${data.id}`}> {prod_name} </Link></h3>
-                <p>{prod_desc} <Link to="/single_product">see more</Link></p>
+                <p>{prod_desc} <Link to={`/single_product/${data.id}`}>see more</Link></p>
                 <dl className="rating">
                     <data value={prod_prices[1]}><del>${prod_prices[0]}</del> <ins>${prod_prices[1]}</ins></data>
                     <dd><p>Rating : {prod_rating}</p>
