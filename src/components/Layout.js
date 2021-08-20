@@ -12,9 +12,10 @@ const Layout = ({children, page_title}) => {
   return (
     <>
       <Header page_title = {page_title} />
-      
+      		<div  class="alert-box success">Successfully Added !!!</div>
       {/* <!--------- Main content ----------> */}
       <main className={page_class}>
+        {/* <div  class="alert-box success">Successful Alert !!!</div> */}
         {children}
       </main>
 
