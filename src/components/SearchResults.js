@@ -32,7 +32,7 @@ const SearchResults = ({result}) => {
         <h2 className="subheading">Results</h2>
 
         <div id="prod">
-          {theProducts}
+            { (theProducts.length === 0)? <div className="noMatch"><h2>No Product Match</h2></div> : theProducts}
         </div>
 
         {/* <!-- Navigation Section --> */}

@@ -82,8 +82,6 @@ const Single_product = ({data, page_tit}) => {
                     </fieldset>
                   </form>
                   <div className="prodcut-list-cart">
-                    {/* <button type="button" className="add-to-cart-btn"><i className="fa fas fa-shopping-cart"></i> Add to Cart</button>
-                    <button type="button" className="add-to-fav"><i className="fa far fa-heart "></i></button> */}
                     <Item key={id} data={prd } />
                     <FavItem  key={id} data={prd } />
                   </div>

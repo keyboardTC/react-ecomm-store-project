@@ -231,6 +231,14 @@ label.rating{
 }
 /* Alert message style ends */
 
+.noMatch{
+    text-align: center;
+    align-self: center;
+    margin: 0px auto;
+    padding-bottom: 12em;
+    padding-top: 12em;
+}
+
 /* <==================== footer styling ============> */
 .main-footer{
     background-color: var(--secondary-on);
