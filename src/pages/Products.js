@@ -82,6 +82,24 @@ const handleSortChange = ({target}) => {
   })
 }
 
+  //  Toggle the product filters to show when button is click
+  const menuFilters = () => {
+    const filt_toggle = document.querySelector(`.filt-toggle`)
+    const filters = document.querySelector(`.filters`)
+    try {
+      filt_toggle.addEventListener('click',function () {
+        if (filters.classList.contains(`m-hide`)) {
+          filters.classList.remove('m-hide')
+        } else {
+          filters.classList.add('m-hide')
+        }
+      })
+    }
+    catch(err) {
+      console.log("Error message: "+err.message)
+    }
+  }
+
   return (
     <Layout page_title = {page_tit}>
 
@@ -90,7 +108,7 @@ const handleSortChange = ({target}) => {
         {/* <!-- Filtering product form -->     */}
 
         <div className="filter-toggle">
-          <button type="button" className="filt-toggle" name="filter button">
+          <button onClick={menuFilters} type="button" className="filt-toggle" name="filter button">
             {/* <!-- <span class="material-icons">menu</span> --> */}
             <i className="fa fa-bars fa-2x"></i>
           </button>            

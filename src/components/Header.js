@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from 'img/winHubLogo1.png';
 import {Link} from 'react-router-dom'
 import CartCount from 'components/CartCount'
@@ -6,13 +6,30 @@ import FaviCount from 'components/FaviCount'
 
 const Header = ({page_title}) => {
 
-  console.log(page_title+" yesss it works in header")
+// To determine which page style to impliment based on the page title
   const pane = page_title ? page_title+" PAGE" : "PAGE TITLE"
+
+  // Event Listerner Toggle the Nav menu to show when button is click
+  const menuToggle = () => {
+      const nav_toggle = document.querySelector(`.nav-toggle`)
+      const navigation = document.querySelector(`.navigation`)
+      nav_toggle.addEventListener('click',function () {
+        if (navigation.classList.contains(`m-hide`)) {
+          navigation.classList.remove('m-hide')
+          navigation.classList.add('nav_style')
+        } else {
+          navigation.classList.remove('nav_style')
+          navigation.classList.add('m-hide')
+        }
+      })
+  }
+
+
 
   return (
     <header className="page-header">
         {/* <!-- Navigation menu and toggle button (non-functional) --> */}
-        <button type="button" className="nav-toggle" name="menu button">
+        <button  onClick={menuToggle } type="button" className="nav-toggle" name="menu button">
           {/* <!-- <span className="material-icons">menu</span> --> */}
           <i className="fa fa-bars fa-2x"></i>
         </button>   
