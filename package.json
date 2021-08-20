@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --mode development --history-api-fallback",
     "server": "nodemon --watch server server/index.js",
-    "build": "webpack --watch --progress --mode production"
+    "build": "webpack --mode production",
+    "deploy": "npm run build; netlify deploy --prod --dir=dist;"
   },
   "keywords": [],
   "author": "",
